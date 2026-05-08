@@ -10,6 +10,7 @@ install on ubuntu
  1306  systemctl status mosquitto
  1307  history
 
+
 检查端口监听
 bash
 ss -lntp | grep 1883
@@ -38,6 +39,31 @@ grep -R "listener" /etc/mosquitto/
 
 listener 1883
 allow_anonymous true
+防火墙是否允许（如果远程访问）
+
+如果你要从其他机器访问：
+
+✅ UFW
+bash
+sudo ufw allow 1883/tcp
+✅ firewalld
+bash
+sudo firewall-cmd --permanent --add-port=1883/tcp
+sudo firewall-cmd --reload
+七、一句话总结
+
+从日志看，mosquitto 服务已经安装、启用并处于允许状态；
+
+你可以通过 systemctl status mosquitto确认运行状态，用 mosquitto_sub / mosquitto_pub验证功能是否正常。
+
+如果你接下来想做的是：
+
+✅ 开启用户名密码认证
+
+✅ 配置 TLS / SSL
+
+✅ 只允许特定 IP 访问
+
 
 
 MQTT（Message Queuing Telemetry Transport）是一种基于发布/订阅模型的轻量级物联网消息协议，特别适用于低带宽、高延迟或网络不稳定的场景。以下将从核心概念到生产最佳实践，系统性地梳理其使用方案。
