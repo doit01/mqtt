@@ -4,7 +4,11 @@ BP:EMQX服务端，SpringBoot 客户端	Spring Integration MQTT （基于 Paho�
 规则示例：在秤的固件中预设规则 scale/{MAC}/weight，秤启动时自动读取自己的MAC A4:CF:12:34:56:78，则最终发布主题为 scale/a4cf12345678/weight。
 优点：随插即用，无需任何手工配置。客户端只需知道设备MAC或扫描二维码即可构建主题进行订阅。
 缺点：要求设备固件支持动态替换变量。
-
+install on ubuntu
+ sudo apt-add-repository ppa:mosquitto-dev/mosquitto-ppa
+ 1305  sudo apt install mosquitto mosquitto-clients
+ 1306  systemctl status mosquitto
+ 1307  history
 
 
 
