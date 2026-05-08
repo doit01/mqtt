@@ -45,6 +45,8 @@ allow_anonymous true
 
 ✅ UFW
 bash
+sudo ufw status
+sudo ufw status numbered
 sudo ufw allow 1883/tcp
 ✅ firewalld
 bash
@@ -57,6 +59,7 @@ sudo firewall-cmd --reload
 你可以通过 systemctl status mosquitto确认运行状态，用 mosquitto_sub / mosquitto_pub验证功能是否正常。
 
 如果你接下来想做的是：
+ss -lntp
 
 ✅ 开启用户名密码认证
 
@@ -64,6 +67,14 @@ sudo firewall-cmd --reload
 
 ✅ 只允许特定 IP 访问
 
+	
+
+
+for client dashboard tool install
+docker pull ghcr.io/thomasnordquist/mqtt-explorer:master-35f3197
+ 1304  docker run -d   -p 3000:3000   -e MQTT_EXPLORER_USERNAME=admin   -e MQTT_EXPLORER_PASSWORD=your_secure_password   -v mqtt-explorer-data:/app/data   ghcr.io/thomasnordquist/mqtt-explorer:latest
+ 1305  docker ps
+login http://10.207.1.124:3000/
 
 
 MQTT（Message Queuing Telemetry Transport）是一种基于发布/订阅模型的轻量级物联网消息协议，特别适用于低带宽、高延迟或网络不稳定的场景。以下将从核心概念到生产最佳实践，系统性地梳理其使用方案。
