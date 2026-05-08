@@ -10,7 +10,11 @@ install on ubuntu
  1306  systemctl status mosquitto
  1307  history
 
-
+检查端口监听
+bash
+ss -lntp | grep 1883
+# 或
+netstat -lntp | grep mosquitto
 
 MQTT（Message Queuing Telemetry Transport）是一种基于发布/订阅模型的轻量级物联网消息协议，特别适用于低带宽、高延迟或网络不稳定的场景。以下将从核心概念到生产最佳实践，系统性地梳理其使用方案。
 
