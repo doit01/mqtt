@@ -16,6 +16,30 @@ ss -lntp | grep 1883
 # 或
 netstat -lntp | grep mosquitto
 
+打开一个终端，订阅主题
+bash
+mosquitto_sub -h localhost -t test/topic
+2️⃣ 再打开一个终端，发布消息
+bash
+mosquitto_pub -h localhost -t test/topic -m "hello mqtt"
+查看 mosquitto 配置（可选）
+
+配置文件一般在：
+
+bash
+/etc/mosquitto/mosquitto.conf
+
+查看监听端口和绑定地址：
+
+bash
+grep -R "listener" /etc/mosquitto/
+
+默认通常是：
+
+listener 1883
+allow_anonymous true
+
+
 MQTT（Message Queuing Telemetry Transport）是一种基于发布/订阅模型的轻量级物联网消息协议，特别适用于低带宽、高延迟或网络不稳定的场景。以下将从核心概念到生产最佳实践，系统性地梳理其使用方案。
 
 ---
